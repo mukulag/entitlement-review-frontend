@@ -3,12 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { PublicClientApplication } from '@azure/msal-browser';
+import { MsalProvider } from '@azure/msal-react';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
+const msalConfig = {
+  auth: {
+    clientId: process.env.REACT_APP_AZURE_B2C_CLIENT_ID,
+    authority: process.env.REACT_APP_AZURE_B2C_AUTHORITY,
+    redirectUri: window.location.origin
+  }
+};
+
+
+const msalInstance = new PublicClientApplication(msalConfig);
+
+ReactDOM.render(
+  <MsalProvider instance={msalInstance}>
     <App />
-  </React.StrictMode>
+  </MsalProvider>,
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function
