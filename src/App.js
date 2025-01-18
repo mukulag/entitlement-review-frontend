@@ -1,8 +1,12 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './components/Login';
-import AdminDashboard from './components/AdminDashboard';
-import ReviewerDashboard from './components/ReviewerDashboard';
+//import AdminDashboard from './components/AdminDashboard';
+//import ReviewerDashboard from './components/ReviewerDashboard';
+
+import AdminDashboardPage from './pages/AdminDashboardPage';
+import ReviewerDashboardPage from './pages/ReviewerDashboardPage';
+
 
 function App() {
   return (
